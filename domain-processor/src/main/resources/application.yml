@@ -12,6 +12,8 @@ spring.cloud.stream:
     bindings:
       domainProcessor-in-0:
         consumer:
+          properties:
+            spring.json.trusted.packages: "com.glaandry.example.kafkaspring.*"
           configuration:
             value:
               #Deserialize Data for in topic

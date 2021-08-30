@@ -1,8 +1,7 @@
 package com.glaandry.example.kafkaspring.domaincrowler.entity;
 
-import java.io.Serializable;
 
-public class Domain implements Serializable {
+public class Domain {
     /**
      * La classe rispecchia le variabili ottenute tramite le API
      * utilizzate.

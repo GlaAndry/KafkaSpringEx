@@ -24,5 +24,6 @@ public class DomainKafkaProcessor {
             }
             return !domain.isDead();
         });
+
     }
 }
