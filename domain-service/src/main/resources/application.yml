@@ -1,0 +1,25 @@
+##Kafka Stream Configuration
+spring.cloud.stream:
+  function:
+    definition: domainService #Function Name in configuration
+  bindings:
+    domainService-in-0:
+      destination: active.web-domains #Topic Name In
+      ##Abbiamo solamente topic in entrata e le info
+      ##vengono consumate senza inserirle all'interno di
+      ##un altro topic!
+
+  kafka:
+    bindings:
+      domainService-in-0:
+        consumer:
+          configuration:
+            value:
+              #Deserialize Data for in topic
+              deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+
+    binder:
+      #Broker info
+      brokers:
+        - localhost:9091
+        - localhost:9092

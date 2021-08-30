@@ -1,0 +1,31 @@
+##Kafka Stream Configuration
+spring.cloud.stream:
+  function:
+    definition: domainProcessor #Function Name in configuration
+  bindings:
+    domainProcessor-in-0:
+      destination: web-domains #Topic Name In
+    domainProcessor-out-0:
+      destination: active.web-domains #TopicName out
+
+  kafka:
+    bindings:
+      domainProcessor-in-0:
+        consumer:
+          configuration:
+            value:
+              #Deserialize Data for in topic
+              deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+
+      domainProcessor-out-0:
+        producer:
+          configuration:
+            value:
+              #Serialize Data for out topic
+              serializer: org.springframework.kafka.support.serializer.JsonSerializer
+
+    binder:
+      #Broker info
+      brokers:
+        - localhost:9091
+        - localhost:9092
