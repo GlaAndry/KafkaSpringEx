@@ -13,11 +13,11 @@ spring.cloud.stream:
     bindings:
       domainService-in-0:
         consumer:
-          configuration:
-
-            value:
-              #Deserialize Data for in topic
-              deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+          bootstrap-servers: localhost:9092
+          group-id: group_id
+          auto-offset-reset: earliest
+          key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+          value-deserializer: org.apache.kafka.common.serialization.JsonDeserializer
 
     binder:
       #Broker info

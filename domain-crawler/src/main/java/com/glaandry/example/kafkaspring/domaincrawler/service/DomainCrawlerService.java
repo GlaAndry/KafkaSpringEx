@@ -2,6 +2,7 @@ package com.glaandry.example.kafkaspring.domaincrawler.service;
 
 import com.glaandry.example.kafkaspring.domaincrawler.entity.Domain;
 import com.glaandry.example.kafkaspring.domaincrawler.entity.DomainList;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
@@ -11,6 +12,7 @@ import reactor.core.publisher.Mono;
 @Service
 public class DomainCrawlerService {
 
+    @Autowired
     private KafkaTemplate<String, Domain> kafkaTemplate;
     private final String KAFKA_TOPIC_NAME = "web-domains";
 
